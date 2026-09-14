@@ -263,7 +263,7 @@ function PortraitSequence() {
         </header>
 
         <div className="portrait-identity">
-          <h1>RANITH N.</h1>
+          <h1>RANITH.N.</h1>
           <span>SOFTWARE DEVELOPER</span>
         </div>
 
