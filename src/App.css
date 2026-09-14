@@ -8605,4 +8605,28 @@ a {
   .contact-footer a {
     font-size: 11px;
   }
+  /* =========================================================
+   EXPERIENCE — KEEP TEXT CLEAR OF PORTRAIT
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .experience-role-overlay {
+    left: 42px !important;
+    bottom: 64px !important;
+    width: min(620px, 40vw) !important;
+    max-width: 620px !important;
+    padding: 0 !important;
+  }
+
+  .experience-role-overlay h2 {
+    max-width: 620px !important;
+    font-size: clamp(42px, 4.1vw, 64px) !important;
+    line-height: 0.94 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .experience-role-description {
+    max-width: 560px !important;
+  }
+}
 }
