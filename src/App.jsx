@@ -139,35 +139,62 @@ function PortraitSequence() {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      /*
-       * The new turning frames are native 16:9 (1920x1080).
-       * Render them edge-to-edge with the same COVER behaviour
-       * as the opening portrait sequence.
-       */
-      const scale = Math.max(
-        width / image.naturalWidth,
-        height / image.naturalHeight
-      );
-
-      const drawWidth = image.naturalWidth * scale;
-      const drawHeight = image.naturalHeight * scale;
-
-      const x = (width - drawWidth) / 2;
-      const y = (height - drawHeight) / 2;
+      const isMobile = width <= 768;
 
       context.fillStyle = "#050505";
       context.fillRect(0, 0, width, height);
 
+      if (isMobile) {
+        // Mobile gets a deliberately composed cinematic treatment instead of
+        // forcing the desktop 16:9 artwork to fill a tall phone screen.
+        // A soft full-screen version provides the atmosphere, while the
+        // sharper foreground is zoomed out so the subject is not enormous.
+        const coverScale = Math.max(
+          width / image.naturalWidth,
+          height / image.naturalHeight
+        );
+        const bgWidth = image.naturalWidth * coverScale;
+        const bgHeight = image.naturalHeight * coverScale;
+        const bgX = (width - bgWidth) * 0.62;
+        const bgY = (height - bgHeight) / 2;
+
+        context.save();
+        context.filter = "blur(18px)";
+        context.globalAlpha = 0.34;
+        context.drawImage(image, bgX, bgY, bgWidth, bgHeight);
+        context.restore();
+
+        context.fillStyle = "rgba(5, 5, 5, 0.34)";
+        context.fillRect(0, 0, width, height);
+
+        const mobileScale = coverScale * 0.72;
+        const drawWidth = image.naturalWidth * mobileScale;
+        const drawHeight = image.naturalHeight * mobileScale;
+        const x = (width - drawWidth) * 0.64;
+        const y = (height - drawHeight) / 2;
+
+        context.save();
+        context.imageSmoothingEnabled = true;
+        context.imageSmoothingQuality = "high";
+        context.drawImage(image, x, y, drawWidth, drawHeight);
+        context.restore();
+        return;
+      }
+
+      // Desktop remains exactly the existing full-screen 16:9 composition.
+      const scale = Math.max(
+        width / image.naturalWidth,
+        height / image.naturalHeight
+      );
+      const drawWidth = image.naturalWidth * scale;
+      const drawHeight = image.naturalHeight * scale;
+      const x = (width - drawWidth) / 2;
+      const y = (height - drawHeight) / 2;
+
       context.save();
       context.imageSmoothingEnabled = true;
       context.imageSmoothingQuality = "high";
-      context.drawImage(
-        image,
-        x,
-        y,
-        drawWidth,
-        drawHeight
-      );
+      context.drawImage(image, x, y, drawWidth, drawHeight);
       context.restore();
     };
 
@@ -563,6 +590,7 @@ function Experience() {
 function Projects() {
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
+  const backdropRef = useRef(null);
   const framesRef = useRef([]);
   const currentFrameRef = useRef(0);
   const targetFrameRef = useRef(0);
@@ -576,6 +604,7 @@ function Projects() {
   useEffect(() => {
     const section = sectionRef.current;
     const image = imageRef.current;
+    const backdrop = backdropRef.current;
 
     if (!section || !image) return;
 
@@ -613,6 +642,9 @@ function Projects() {
         if (image.src !== next.src) {
           image.src = next.src;
         }
+        if (backdrop && backdrop.src !== next.src) {
+          backdrop.src = next.src;
+        }
         return;
       }
 
@@ -621,6 +653,7 @@ function Projects() {
         () => {
           if (!destroyed && Math.round(currentFrameRef.current) === index) {
             image.src = next.src;
+            if (backdrop) backdrop.src = next.src;
           }
         },
         { once: true }
@@ -686,6 +719,14 @@ function Projects() {
       aria-label="Selected projects"
     >
       <div className="projects-cinematic-stage">
+        <img
+          ref={backdropRef}
+          className="projects-transition-backdrop"
+          src={getFramePath(0)}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        />
         <img
           ref={imageRef}
           className="projects-transition-image"

@@ -8649,22 +8649,17 @@ body::-webkit-scrollbar {
 
 @media (max-width: 768px) {
   /* ---------- GLOBAL ---------- */
+  /* Do NOT put overflow-x:hidden on html/body.
+     It can break sticky scroll sections on mobile Safari/iOS. */
   html,
   body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
 
-  body {
-    min-width: 0;
-  }
-
+  #root,
   .site {
     width: 100%;
     max-width: 100%;
-    overflow-x: clip;
   }
 
   /* ---------- NAVIGATION ---------- */
@@ -8711,7 +8706,7 @@ body::-webkit-scrollbar {
   /* ---------- HOME / PORTRAIT SEQUENCE ---------- */
   .portrait-sequence {
     width: 100%;
-    height: 500vh !important;
+    height: 320vh !important;
   }
 
   .portrait-sticky {
@@ -8823,7 +8818,7 @@ body::-webkit-scrollbar {
   #experience > .experience-turn-sequence,
   .experience-turn-sequence {
     width: 100% !important;
-    height: 500vh !important;
+    height: 220vh !important;
   }
 
   .experience-turn-sticky {
@@ -8961,7 +8956,7 @@ body::-webkit-scrollbar {
   /* ---------- PROJECTS CINEMATIC ---------- */
   .projects-cinematic-section {
     width: 100% !important;
-    height: 500vh !important;
+    height: 220vh !important;
     min-height: 0 !important;
     overflow: clip !important;
   }
@@ -9288,5 +9283,148 @@ body::-webkit-scrollbar {
 
   .contact-heading strong {
     font-size: clamp(48px, 15.5vw, 78px) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE CINEMATIC FINAL — iPhone 17 Pro / modern phones
+   390–430px layouts get their own composition.
+   Desktop is untouched.
+   ========================================================= */
+
+.projects-transition-backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Keep the document itself normal; hide only the visual scrollbars. */
+  html,
+  body {
+    width: auto !important;
+    max-width: none !important;
+    overflow-x: visible !important;
+  }
+
+  /* The cinematic sections need enough travel to scrub, but not multiple
+     unnecessary phone screens after the animation has finished. */
+  .portrait-sequence {
+    height: 300vh !important;
+  }
+
+  .experience-turn-sequence {
+    height: 190vh !important;
+  }
+
+  .projects-cinematic-section {
+    height: 180vh !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: #020508 !important;
+  }
+
+  /* ---------------- PROJECTS ----------------
+     Do not force the 16:9 desktop artwork to cover a 19.5:9 phone.
+     The complete frame stays visible in a centered cinematic card while
+     a blurred copy fills the phone behind it. */
+  .projects-cinematic-stage {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100vw !important;
+    height: 100svh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #020508 !important;
+  }
+
+  .projects-transition-backdrop {
+    display: block !important;
+    position: absolute !important;
+    inset: -10% !important;
+    width: 120% !important;
+    height: 120% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    filter: blur(24px) brightness(0.34) saturate(0.8) !important;
+    opacity: 0.72 !important;
+    transform: scale(1.08) !important;
+    z-index: 0 !important;
+  }
+
+  .projects-transition-image {
+    position: absolute !important;
+    inset: auto !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 94vw !important;
+    height: auto !important;
+    max-width: 94vw !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48) !important;
+  }
+
+  .projects-transition-vignette {
+    z-index: 2 !important;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(2, 5, 8, 0.18),
+        transparent 28%,
+        transparent 72%,
+        rgba(2, 5, 8, 0.54)
+      ) !important;
+  }
+
+  /* ---------------- EXPERIENCE ---------------- */
+  .experience-turn-sticky {
+    height: 100svh !important;
+    min-height: 0 !important;
+  }
+
+  .experience-turn-image {
+    height: 100svh !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: 58% 20% !important;
+  }
+
+  /* ---------------- ABOUT ---------------- */
+  .about-editorial-portrait-frame {
+    height: min(116vw, 500px) !important;
+    max-height: 500px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .portrait-identity {
+    top: 72px !important;
+  }
+
+  .portrait-identity h1 {
+    font-size: clamp(34px, 10.5vw, 44px) !important;
+  }
+
+  .portrait-skill-copy {
+    bottom: 62px !important;
+  }
+
+  .portrait-skill-copy h1 {
+    font-size: clamp(30px, 9.8vw, 42px) !important;
+  }
+
+  .experience-role-overlay h2 {
+    font-size: clamp(30px, 9.6vw, 42px) !important;
+  }
+
+  .projects-transition-image {
+    width: 96vw !important;
+    max-width: 96vw !important;
   }
 }
