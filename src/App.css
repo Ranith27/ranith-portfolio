@@ -8642,3 +8642,651 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;               /* Chrome, Edge, Safari */
 }
+/* =========================================================
+   FINAL MOBILE RESPONSIVE PASS
+   Desktop (769px+) is intentionally untouched.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* ---------- GLOBAL ---------- */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .site {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+  .navbar {
+    top: 10px !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    padding: 0 10px 0 16px !important;
+    z-index: 1000 !important;
+  }
+
+  .nav-brand {
+    font-size: 15px !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .nav-menu-button {
+    display: flex !important;
+    flex: 0 0 auto;
+    width: 36px !important;
+    height: 36px !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.055) !important;
+  }
+
+  .mobile-navigation {
+    z-index: 998 !important;
+  }
+
+  .mobile-navigation-inner {
+    padding: 88px 20px 24px !important;
+    min-height: 100svh;
+  }
+
+  .mobile-navigation nav a {
+    min-height: 62px !important;
+    grid-template-columns: 38px 1fr !important;
+    font-size: clamp(25px, 8.5vw, 38px) !important;
+  }
+
+  /* ---------- HOME / PORTRAIT SEQUENCE ---------- */
+  .portrait-sequence {
+    width: 100%;
+    height: 500vh !important;
+  }
+
+  .portrait-sticky {
+    width: 100%;
+    height: 100svh !important;
+    min-height: 560px;
+  }
+
+  .portrait-canvas {
+    width: 100vw !important;
+    height: 100svh !important;
+  }
+
+  .portrait-header {
+    height: 58px !important;
+    padding: 0 20px !important;
+  }
+
+  .portrait-header-left,
+  .portrait-header-right {
+    font-size: 7px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .portrait-identity {
+    top: 78px !important;
+    left: 20px !important;
+    right: 20px !important;
+  }
+
+  .portrait-identity h1 {
+    font-size: clamp(36px, 12vw, 52px) !important;
+    line-height: 0.88 !important;
+  }
+
+  .portrait-identity > span {
+    margin-top: 8px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .portrait-identity::before {
+    left: -16px !important;
+    top: -16px !important;
+    width: 320px !important;
+    height: 120px !important;
+  }
+
+  .portrait-skill-copy {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 68px !important;
+    width: auto !important;
+  }
+
+  .portrait-skill-index {
+    margin-bottom: 12px !important;
+    gap: 12px !important;
+    font-size: 8px !important;
+  }
+
+  .portrait-skill-index span:first-child {
+    font-size: 9px !important;
+  }
+
+  .portrait-skill-copy h1 {
+    max-width: 88vw;
+    font-size: clamp(34px, 11vw, 50px) !important;
+    line-height: 0.92 !important;
+  }
+
+  .portrait-skill-line {
+    max-width: 88vw;
+    margin-top: 10px !important;
+    gap: 9px !important;
+    font-size: 9px !important;
+    line-height: 1.45 !important;
+  }
+
+  .portrait-skill-dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  .portrait-bottom {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 22px !important;
+    font-size: 6px !important;
+  }
+
+  .portrait-chapter-progress {
+    right: 20px !important;
+    bottom: 22px !important;
+    gap: 8px !important;
+    font-size: 6px !important;
+  }
+
+  .portrait-chapter-progress > div {
+    width: 48px !important;
+  }
+
+  .portrait-progress {
+    right: 7px !important;
+    height: 70px !important;
+  }
+
+  /* ---------- EXPERIENCE CINEMATIC ---------- */
+  #experience > .experience-turn-sequence,
+  .experience-turn-sequence {
+    width: 100% !important;
+    height: 500vh !important;
+  }
+
+  .experience-turn-sticky {
+    width: 100vw !important;
+    height: 100svh !important;
+    min-height: 560px;
+  }
+
+  .experience-turn-image {
+    width: 100vw !important;
+    height: 100svh !important;
+    min-width: 100vw !important;
+    min-height: 100svh !important;
+    object-fit: cover !important;
+    object-position: center 8% !important;
+  }
+
+  .experience-turn-vignette {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.30),
+        transparent 28%,
+        transparent 58%,
+        rgba(0, 0, 0, 0.64) 100%
+      ) !important;
+  }
+
+  .experience-turn-label {
+    top: 76px !important;
+    left: 20px !important;
+    right: 20px !important;
+    gap: 4px !important;
+  }
+
+  .experience-turn-label .experience-turn-number {
+    font-size: 8px !important;
+  }
+
+  .experience-turn-label .experience-turn-title {
+    font-size: clamp(25px, 8vw, 38px) !important;
+    line-height: 0.92 !important;
+  }
+
+  .experience-turn-label .experience-turn-subtitle {
+    margin-top: 3px !important;
+    font-size: 6px !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .experience-role-overlay {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 50px !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .experience-role-overlay::before {
+    left: -70px !important;
+    right: -30px !important;
+    top: -55px !important;
+    bottom: -45px !important;
+    background: radial-gradient(
+      ellipse at left bottom,
+      rgba(0, 0, 0, 0.84) 0%,
+      rgba(0, 0, 0, 0.50) 42%,
+      rgba(0, 0, 0, 0) 78%
+    ) !important;
+  }
+
+  .experience-role-kicker {
+    margin-bottom: 9px !important;
+    gap: 9px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .experience-role-overlay h2 {
+    width: auto !important;
+    max-width: 92vw !important;
+    font-size: clamp(34px, 10.5vw, 52px) !important;
+    line-height: 0.93 !important;
+    letter-spacing: -0.048em !important;
+  }
+
+  .experience-role-meta {
+    margin-top: 12px !important;
+    gap: 5px 12px !important;
+    font-size: 7px !important;
+    line-height: 1.35 !important;
+  }
+
+  .experience-role-description {
+    max-width: 92vw !important;
+    margin-top: 9px !important;
+    font-size: 10px !important;
+    line-height: 1.45 !important;
+  }
+
+  .experience-role-work {
+    margin-top: 10px !important;
+  }
+
+  .experience-role-work-label {
+    margin-bottom: 6px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .experience-role-work-list {
+    gap: 5px !important;
+  }
+
+  .experience-role-work-list span {
+    min-height: 21px !important;
+    padding: 5px 7px !important;
+    font-size: 6.5px !important;
+    line-height: 1.2 !important;
+  }
+
+  .experience-role-tech {
+    margin-top: 8px !important;
+    font-size: 6.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .experience-turn-progress {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 17px !important;
+  }
+
+  /* ---------- PROJECTS CINEMATIC ---------- */
+  .projects-cinematic-section {
+    width: 100% !important;
+    height: 500vh !important;
+    min-height: 0 !important;
+    overflow: clip !important;
+  }
+
+  .projects-cinematic-stage {
+    width: 100vw !important;
+    height: 100svh !important;
+    min-height: 560px !important;
+  }
+
+  .projects-transition-image {
+    width: 100vw !important;
+    height: 100svh !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .projects-transition-vignette {
+    background:
+      radial-gradient(
+        circle at center,
+        transparent 42%,
+        rgba(2, 5, 8, 0.22) 78%,
+        rgba(2, 5, 8, 0.56) 100%
+      ) !important;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-editorial-section {
+    width: 100%;
+    padding: 96px 20px 72px !important;
+  }
+
+  .about-editorial-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-editorial-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 48px !important;
+    min-height: 0 !important;
+    padding-top: 26px !important;
+  }
+
+  .about-editorial-copy {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  .about-editorial-kicker {
+    margin-bottom: 18px !important;
+    font-size: 9px !important;
+  }
+
+  .about-editorial-copy h2 {
+    font-size: clamp(45px, 13.2vw, 76px) !important;
+    line-height: 0.87 !important;
+    letter-spacing: -0.065em !important;
+  }
+
+  .about-editorial-lead {
+    max-width: 100% !important;
+    margin-top: 28px !important;
+    font-size: 15px !important;
+    line-height: 1.68 !important;
+  }
+
+  .about-editorial-meta {
+    margin-top: 24px !important;
+    gap: 10px !important;
+    font-size: 8px !important;
+  }
+
+  .about-editorial-portrait-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-editorial-portrait-label,
+  .about-editorial-portrait-note {
+    gap: 12px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.10em !important;
+  }
+
+  .about-editorial-portrait-frame {
+    width: 100% !important;
+    height: min(118vw, 520px) !important;
+    max-height: 520px !important;
+  }
+
+  .about-editorial-portrait-frame img {
+    object-position: center center !important;
+  }
+
+  .about-editorial-block,
+  .about-editorial-certification-block {
+    display: block !important;
+    width: 100%;
+    margin-top: 52px !important;
+    padding: 28px 18px 0 !important;
+  }
+
+  .about-editorial-certification-block {
+    padding-bottom: 22px !important;
+  }
+
+  .about-editorial-block-label {
+    margin-bottom: 22px;
+  }
+
+  .about-editorial-block-label > span {
+    padding-top: 0 !important;
+    font-size: 9px !important;
+  }
+
+  .about-editorial-education-item {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px 14px !important;
+    padding: 26px 0 !important;
+  }
+
+  .about-editorial-year {
+    grid-column: 1 / -1 !important;
+    padding-top: 0 !important;
+    font-size: 9px !important;
+  }
+
+  .about-editorial-education-main {
+    min-width: 0;
+    grid-column: 1 / -1 !important;
+  }
+
+  .about-editorial-education-main h3 {
+    margin-bottom: 8px !important;
+    font-size: 20px !important;
+    line-height: 1.08 !important;
+  }
+
+  .about-editorial-institution {
+    margin-bottom: 11px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .about-editorial-education-main > p:last-child {
+    font-size: 12px !important;
+    line-height: 1.7 !important;
+  }
+
+  .about-editorial-education-item > strong {
+    grid-column: 1 / -1 !important;
+    padding-top: 3px !important;
+    font-size: 9px !important;
+  }
+
+  .about-editorial-certification {
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    padding: 25px 0 22px !important;
+  }
+
+  .about-editorial-certification > span {
+    padding-top: 4px !important;
+    font-size: 9px !important;
+  }
+
+  .about-editorial-certification h3 {
+    margin-bottom: 8px !important;
+    font-size: 28px !important;
+  }
+
+  .about-editorial-certification p {
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .about-editorial-certification small {
+    font-size: 8px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section {
+    width: 100%;
+    min-height: 100svh !important;
+    padding: 82px 20px 28px !important;
+  }
+
+  .contact-container {
+    width: 100%;
+    min-height: calc(100svh - 110px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-main {
+    margin-top: 48px !important;
+  }
+
+  .contact-heading span {
+    font-size: 9px !important;
+    letter-spacing: 0.17em !important;
+  }
+
+  .contact-heading strong {
+    font-size: clamp(52px, 16vw, 88px) !important;
+    line-height: 0.84 !important;
+    letter-spacing: -0.075em !important;
+  }
+
+  .contact-side {
+    margin-top: 34px !important;
+    max-width: 100% !important;
+  }
+
+  .contact-side p {
+    max-width: 330px;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .contact-button {
+    width: 100%;
+    min-height: 54px !important;
+    justify-content: space-between;
+    margin-top: 28px !important;
+    padding: 15px 17px !important;
+    font-size: 9px !important;
+  }
+
+  .contact-email {
+    display: block;
+    max-width: 100%;
+    margin-top: 15px !important;
+    font-size: 10px !important;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-footer {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 20px !important;
+    margin-top: auto !important;
+    padding-top: 58px;
+  }
+
+  .contact-footer > div {
+    min-width: 0;
+  }
+
+  .contact-footer span,
+  .contact-footer a {
+    font-size: 9px !important;
+    line-height: 1.5 !important;
+  }
+
+  .contact-footer .contact-footer-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 8px !important;
+  }
+
+  .contact-top {
+    text-align: left;
+  }
+}
+
+/* Smaller phones: tighten only the areas that need it. */
+@media (max-width: 480px) {
+  .navbar {
+    left: 10px !important;
+    right: 10px !important;
+  }
+
+  .portrait-skill-copy {
+    bottom: 70px !important;
+  }
+
+  .portrait-skill-copy h1 {
+    font-size: clamp(32px, 10.5vw, 46px) !important;
+  }
+
+  .experience-role-overlay {
+    bottom: 48px !important;
+  }
+
+  .experience-role-overlay h2 {
+    font-size: clamp(32px, 10vw, 46px) !important;
+  }
+
+  .experience-role-description {
+    font-size: 9.5px !important;
+  }
+
+  .experience-role-work-list span {
+    font-size: 6px !important;
+    padding: 4px 6px !important;
+  }
+
+  .about-editorial-section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .about-editorial-copy h2 {
+    font-size: clamp(42px, 12.8vw, 66px) !important;
+  }
+
+  .about-editorial-portrait-frame {
+    height: 108vw !important;
+    max-height: 470px !important;
+  }
+
+  .contact-section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .contact-heading strong {
+    font-size: clamp(48px, 15.5vw, 78px) !important;
+  }
+}
