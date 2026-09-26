@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import "./App.css";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 /* =========================================
    REUSABLE MOTION
 ========================================= */
@@ -81,7 +83,7 @@ const portraitChapters = [
 ];
 
 function getPortraitFramePath(index) {
-  return `/portrait-frames/frame-${String(index).padStart(4, "0")}.jpg`;
+  return `${BASE_URL}portrait-frames/frame-${String(index).padStart(4, "0")}.jpg`;
 }
 
 function getPortraitChapter(progress) {
@@ -346,7 +348,7 @@ function PortraitSequence() {
 const TURNING_FRAMES = 240;
 
 function getTurningFramePath(index) {
-  return `/turning-frames-16x9/frame-${String(index).padStart(4, "0")}.jpg`;
+  return `${BASE_URL}turning-frames-16x9/frame-${String(index).padStart(4, "0")}.jpg`;
 }
 
 function TurningExperienceSequence() {
@@ -401,7 +403,7 @@ function TurningExperienceSequence() {
     let destroyed = false;
 
     const getFramePath = (index) =>
-      `/turning-frames-16x9/frame-${String(index).padStart(4, "0")}.jpg`;
+      `${BASE_URL}turning-frames-16x9/frame-${String(index).padStart(4, "0")}.jpg`;
 
     const frames = Array.from({ length: TURNING_FRAMES }, (_, index) => {
       const image = new Image();
@@ -521,7 +523,7 @@ function TurningExperienceSequence() {
         <img
           ref={imageRef}
           className="experience-turn-image"
-          src="/turning-frames-16x9/frame-0000.jpg"
+          src={`${BASE_URL}turning-frames-16x9/frame-0000.jpg`}
           alt=""
           draggable="false"
         />
@@ -599,7 +601,7 @@ function Projects() {
   const PROJECT_TRANSITION_FRAMES = 259;
 
   const getFramePath = (index) =>
-    `/projects-transition/frame-${String(index).padStart(4, "0")}.jpg`;
+    `${BASE_URL}projects-transition/frame-${String(index).padStart(4, "0")}.jpg`;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -812,7 +814,7 @@ function About() {
               </div>
               <div className="about-editorial-portrait-frame">
                 <img
-                  src="/about-portrait.png"
+                  src={`${BASE_URL}about-portrait.png`}
                   alt=""
                   draggable="false"
                 />
